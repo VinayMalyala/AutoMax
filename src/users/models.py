@@ -7,3 +7,5 @@ class Profile(models.Model):
     photo = models.ImageField(null=True)
     bio = models.CharField(max_length=100, blank=True)
     phone_number = models.CharField(max_length=13, blank=True)
+
+    
