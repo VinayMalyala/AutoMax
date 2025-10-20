@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect                          
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
 from django.contrib.auth import authenticate, login
 
 # Create your views here.
@@ -12,7 +13,12 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
+                messages.success(request, f'You are logged in as {username}')
                 return redirect('home')
+            else:
+                messages.error(request, "An error occured. Try agian later!")
+        else:
+            messages.error(request, "An error occured. Try agian later!")
     elif request.method == "GET":
         login_form = AuthenticationForm()
         

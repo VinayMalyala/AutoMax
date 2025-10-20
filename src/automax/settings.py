@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -104,8 +105,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Login Settings
 LOGIN_REDIRECT_URL = '/home/'
 LOGIN_URL = '/login/'
+
+# Message Settings
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
 
 
 # Internationalization
