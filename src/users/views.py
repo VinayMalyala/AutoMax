@@ -14,7 +14,7 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, f'You are logged in as {username}')
+                messages.success(request, f'You are logged in as {username}.')
                 return redirect('home')
             else:
                 messages.error(request, "An error occured. Try agian later!")
@@ -30,3 +30,15 @@ class RegisterView(View):
     def get(self, request):
         register_form = UserCreationForm()
         return render(request, 'views/register.html', {'register_form': register_form})
+    
+    def post(self, request):
+        register_form = UserCreationForm(data=request.POST)
+        if register_form.is_valid():
+            user = register_form.save()
+            user.refresh_from_db()
+            login(request, user)
+            messages.success(request, f'User {user.username} is registered successfully.')
+            return redirect('home')
+        else:
+            messages.error(request, "An error occured. Try agian later!")
+            return render(request, 'views/register.html', {'register_form': register_form})
