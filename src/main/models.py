@@ -1,7 +1,7 @@
 import uuid
 from django.db import models
 from users.models import Profile, Location
-from .utils import user_directory_path
+from .utils import user_listing_path
 from .consts import CARS_BRANDS, TRANSMISSION_OPTIONS
 
 # Create your models here.
@@ -19,7 +19,7 @@ class Listing(models.Model):
     engine = models.CharField(max_length=24)
     transmission = models.CharField(max_length=24, choices=TRANSMISSION_OPTIONS, default=None)
     location = models.OneToOneField(Location, on_delete=models.SET_NULL, null=True)
-    image = models.ImageField()
+    image = models.ImageField(upload_to=user_listing_path)
 
 
     def __str__(self):

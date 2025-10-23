@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Listing
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -8,4 +9,8 @@ def main_view(request):
 
 @login_required
 def home_view(request):
-    return render(request, 'views/home.html')
+    listings = Listing.objects.all()
+    context = {
+        'listings': listings,
+    }
+    return render(request, 'views/home.html', context)
