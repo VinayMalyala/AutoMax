@@ -1,4 +1,5 @@
 {% extends "base/base.html" %}
+{% load crispy_forms_tags %}
 
 {% block title %}
     <title>AutoMax | Home</title>
@@ -10,7 +11,7 @@
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <h1 class="fw-light">Automax</h1>
-                    <p class="lead text-muted">
+                    <p class="lead text-muted w-75 my-4">
                         The best place to buy or sell modern enthusiast cars, and we’ve
                         made it that much easier.
                     </p>
@@ -19,6 +20,10 @@
 
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <!-- Listing Filter -->
+                     <form method="get">
+                        {{listing_filter.form|crispy}}
+                        <button class="btn btn-danger my-3" type="submit">Submit</button>
+                     </form>
                 </div>
             </div>
         </section>
@@ -26,7 +31,7 @@
         <div class="album py-5 bg-light">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    {% for listing in listings %}
+                    {% for listing in listing_filter.qs %}
                         <div class="col">
                             {% include "components/listing_card.html" %}
                         </div>
