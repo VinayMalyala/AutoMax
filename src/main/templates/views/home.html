@@ -27,7 +27,9 @@
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     {% for listing in listings %}
-                        <p>{{listing.id}}</p>
+                        <div class="col">
+                            {% include "components/listing_card.html" %}
+                        </div>
                     {% endfor %}
                 </div>
             </div>
