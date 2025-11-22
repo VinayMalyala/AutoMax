@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -63,11 +62,25 @@ def edit_view(request, id):
         if listing is None:
             raise Exception
         if request.method == "POST":
-            pass
+            listing_form = ListingForm(request.POST, request.FILES, instance=listing)
+            location_form = LocationForm(request.POST, instance=listing.location)
+            if listing_form.is_valid() and location_form.is_valid():
+                listing_form.save()
+                location_form.save()
+                messages.info(request, f'Listing {id} updated successfully!')
+                return redirect('home')
+            else:
+                messages.error(request, f'An error occured while trying to edit the listing.')
+                return redirect('edit', id=id)
         else:
-            pass
-        return render(request, 'views/edit.html', {})
+            listing_form = ListingForm(instance=listing)
+            location_form = LocationForm(instance=listing.location)
+        context = {
+            'location_form': location_form,
+            'listing_form': listing_form
+        }
+        return render(request, 'views/edit.html', context)
     except Exception as e:
-        messages.error(request, f'An error occured while trying to update the listing.')
+        messages.error(request, f'An error occured while trying to access the edit page.')
         return redirect('home')
     
