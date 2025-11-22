@@ -53,6 +53,20 @@ class RegisterView(View):
         
 @method_decorator(login_required, name='dispatch')
 class ProfileView(View):
+    def post(self, request):
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        location_form = LocationForm(request.POST, instance=request.user.profile.location)
+        if user_form.is_valid() and profile_form.is_valid() and location_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            location_form.save()
+            messages.success(request, "Profile Updated Sucessfully!")
+        else:
+            messages.error(request, "Error Updating Profile!")
+        return render(request, "views/profile.html", {'user_form': user_form, 'profile_form': profile_form, 'location_form': location_form})
+
+
     def get(self, request):
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
