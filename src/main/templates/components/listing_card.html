@@ -29,7 +29,7 @@
             <small class="text-muted">
                 {{listing.updated_at}}
             </small>
-            <button type="button" value="like" class="btn btn-outline-secondary">
+            <button id="like_{{listing.id}}" type="button" value="like" class="btn btn-outline-secondary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000" class="bi bi-heart"
                     viewBox="0 0 16 16">
                     <path
@@ -40,3 +40,18 @@
         </div>
     </div>
 </div>
+
+<script>
+    $("#like_{{listing.id}}").click(function() {
+        $.ajax({
+            type: "POST",
+            url: "{% url 'like_listing' id=listing.id %}",
+            data: { 'csrfmiddlewaretoken': '{{csrf_token}}' },
+            dataType: "json",
+            success: function(r){
+                alert(r)
+            },
+            error: function(rs, e){}
+        });
+    })
+</script>
