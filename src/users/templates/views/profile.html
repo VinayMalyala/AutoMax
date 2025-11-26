@@ -68,13 +68,6 @@
                     {% for liked_listing in user_liked_listings  %}
 
                         <tr>
-                            <td class="py-3" style="padding-left: 30px;">
-                                <button class="text-center" style="border:none; background-color: transparent; padding-left: 20px;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" viewBox="0 0 16 16" style="margin-right: 30px;">
-                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15C-7.534 4.736 2.562-3.248 8 1.314z"/>
-                                    </svg>
-                                </button>
-                            </td>
                             <td class="py-3">
                                 <a href="{% url 'listing' id=liked_listing.listing.id %}" style="text-decoration: none; color: black;">
                                     {{ liked_listing.listing.model }}
