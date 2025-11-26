@@ -68,6 +68,13 @@
                     {% for liked_listing in user_liked_listings  %}
 
                         <tr>
+                            <td class="py-3" style="padding-left: 30px;">
+                                <button id="like_{{liked_listing.listing.id}}" type="button" value="like" class="text-center" style="border:none; background-color: transparent; padding-left: 20px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" viewBox="0 0 16 16" style="margin-right: 30px;">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15C-7.534 4.736 2.562-3.248 8 1.314z"/>
+                                    </svg>
+                                </button>
+                            </td>
                             <td class="py-3">
                                 <a href="{% url 'listing' id=liked_listing.listing.id %}" style="text-decoration: none; color: black;">
                                     {{ liked_listing.listing.model }}
@@ -81,4 +88,37 @@
             </table>
         </div>
     </div>
+
+<script>
+  $(document).on('click', "button[id^='like_']", function(e) {
+    e.preventDefault();
+
+    const fullId = this.id; // like_8b0a18cb-...
+    const uuid = fullId.replace('like_', '');
+
+    // send POST to delete-like endpoint
+    $.ajax({
+      type: "POST",
+      url: "/delete-like/" + uuid + "/",
+      data: {
+        'csrfmiddlewaretoken': '{{ csrf_token }}'
+      },
+      dataType: "json",
+      success: function(response) {
+        if(response.deleted) {
+          // remove the row containing this button
+          $(e.target).closest('tr').remove();
+          console.log('Deleted liked listing:', response.listing_id);
+        } else {
+          console.log('Nothing deleted for', response.listing_id);
+        }
+      },
+      error: function(xhr, status, error) {
+        console.error('Error deleting liked listing:', error);
+        alert('An error occurred while deleting the liked listing.');
+      }
+    });
+  });
+</script>
+
 {% endblock body %}

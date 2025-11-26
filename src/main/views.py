@@ -102,6 +102,19 @@ def like_listing_view(request, id):
     })
 
 @login_required
+def delete_like_listing(request, id):
+    if request.method != "POST":
+        return JsonResponse({'deleted': False, 'error': 'POST required'}, status=400)
+
+    listing = get_object_or_404(Listing, id=id)
+    deleted_count, _ = LikedListing.objects.filter(profile=request.user.profile, listing=listing).delete()
+
+    return JsonResponse({
+        'deleted': bool(deleted_count),
+        'listing_id': str(id)
+    })
+
+@login_required
 def inquire_listing_using_email(request, id):
     listing = get_object_or_404(Listing, id=id)
     try:
