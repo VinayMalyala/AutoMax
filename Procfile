@@ -1,1 +1,1 @@
-web: cd ./src && gunicorn automax.wsgi 
+gunicorn automax.wsgi:application --chdir src --bind 0.0.0.0:$PORT
