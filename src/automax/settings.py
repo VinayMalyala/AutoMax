@@ -23,7 +23,7 @@ env = environ.Env()
 # Make sure we explicitly load the .env file located in the `automax` package folder
 # Default behavior reads from the current working directory which may not always be
 # the same as this project's `automax` folder. Point read_env to the exact file.
-env.read_env()
+env.read(os.path.join(BASE_DIR.parent, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
