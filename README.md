@@ -1,6 +1,17 @@
 # AutoMax
 
-A Django-based car listings application (AutoMax). This project demonstrates a Django web application with a `main` app for listings and `users` for authentication and profiles. It uses a `.env` file to manage environment variables and the `django-environ` package for convenience.
+AutoMax is a modern, modular `Django-based car listings platform` designed with clean architecture and scalable development in mind.
+The project includes:
+
+A `main` listings app for managing and displaying car posts
+
+A `users` app for authentication, registration, and user profiles
+
+Environment variable management using django-environ and a project-level .env file
+
+Production-ready structure with support for static files, .env isolation, and a clear directory layout
+
+AutoMax serves as both a practical Django learning project and a foundation for building advanced automotive marketplace solutions.
 
 ---
 
