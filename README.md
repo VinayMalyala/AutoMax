@@ -1,5 +1,9 @@
 # AutoMax
 
+AutoMax is a car listings platform where users can browse, post, and manage vehicles with ease. Whether you're selling your car or searching for one, AutoMax offers a clean and organized experience to make the process fast and convenient.
+
+<br>
+
 AutoMax is a modern, modular `Django-based car listings platform` designed with clean architecture and scalable development in mind.
 The project includes:
 
