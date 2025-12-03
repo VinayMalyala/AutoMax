@@ -53,7 +53,11 @@ The project includes:
 - Python 3.11+ (project used 3.13 in VS Code settings)
 - pip
 - (Optional) Visual Studio Code + Python extension
-- Git (if you cloned this repository)
+- Git (if you want to clone this repository)
+  
+```pwsh
+git clone https://github.com/VinayMalyala/AutoMax.git
+ ```
 
 ---
 
