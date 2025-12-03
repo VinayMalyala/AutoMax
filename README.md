@@ -13,11 +13,10 @@ The project includes:
 
 - AutoMax serves as both a practical Django learning project and a foundation for building advanced automotive marketplace solutions.
 
-👉 Live Demo: 
+👉 Live Demo:<br>
+🔗 <a href="https://vinaymalyala-automax.onrender.com" target="_blank">https://vinaymalyala-automax.onrender.com</a>
 <br>
-🔗 https://vinaymalyala-automax.onrender.com
-<br>
-🔗 https://vinaymalyala.pythonanywhere.com/
+🔗 <a href="https://vinaymalyala.pythonanywhere.com/" target="_blank">https://vinaymalyala.pythonanywhere.com/</a>
 
 
 ---
