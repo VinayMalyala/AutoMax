@@ -15,14 +15,30 @@ The project includes:
 
 👉 Live Demo: 
 <br>
+🔗 https://vinaymalyala-automax.onrender.com
+<br>
 🔗 https://vinaymalyala.pythonanywhere.com/
+
 
 ---
 
 ## 📸 Screenshots
-- Homepage
-- Car Listing Page
-- User Profile
+- **Main Page**
+  
+  <img width="1889" height="965" alt="Image" src="https://github.com/user-attachments/assets/e5b095fa-0ece-4818-8275-de29be7b64de" />
+  
+- **Home Page**
+  
+  <img width="1892" height="681" alt="Image" src="https://github.com/user-attachments/assets/432c53cc-c1d6-4b86-87c9-1c36aa739cd0" />
+  
+- **Car Listing Page**
+
+  <img width="1887" height="961" alt="Image" src="https://github.com/user-attachments/assets/2c2e7647-3337-486f-9c86-0f5bc6905d3d" />
+  
+- **User Profile**
+
+  <img width="1887" height="973" alt="Image" src="https://github.com/user-attachments/assets/fffaf288-3836-4387-85d4-8bf10b36cbca" />
+  
 
 ## 📂 Project Structure
 - `src/` — Django project root (this repository)
