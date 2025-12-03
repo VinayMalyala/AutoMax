@@ -1,5 +1,9 @@
 # AutoMax
 
+AutoMax is a car listings platform where users can browse, post, and manage vehicles with ease. Whether you're selling your car or searching for one, AutoMax offers a clean and organized experience to make the process fast and convenient.
+
+<br>
+
 AutoMax is a modern, modular `Django-based car listings platform` designed with clean architecture and scalable development in mind.
 The project includes:
 
@@ -13,11 +17,10 @@ The project includes:
 
 - AutoMax serves as both a practical Django learning project and a foundation for building advanced automotive marketplace solutions.
 
-👉 Live Demo: 
+👉 Live Demo:<br>
+🔗 <a href="https://vinaymalyala-automax.onrender.com" target="_blank">https://vinaymalyala-automax.onrender.com</a>
 <br>
-🔗 https://vinaymalyala-automax.onrender.com
-<br>
-🔗 https://vinaymalyala.pythonanywhere.com/
+🔗 <a href="https://vinaymalyala.pythonanywhere.com/" target="_blank">https://vinaymalyala.pythonanywhere.com/</a>
 
 
 ---
@@ -53,7 +56,11 @@ The project includes:
 - Python 3.11+ (project used 3.13 in VS Code settings)
 - pip
 - (Optional) Visual Studio Code + Python extension
-- Git (if you cloned this repository)
+- Git (if you want to clone this repository)
+  
+```pwsh
+git clone https://github.com/VinayMalyala/AutoMax.git
+ ```
 
 ---
 
