@@ -3,19 +3,28 @@
 AutoMax is a modern, modular `Django-based car listings platform` designed with clean architecture and scalable development in mind.
 The project includes:
 
-A `main` listings app for managing and displaying car posts
+- A `main` listings app for managing and displaying car posts
 
-A `users` app for authentication, registration, and user profiles
+- A `users` app for authentication, registration, and user profiles
 
-Environment variable management using django-environ and a project-level .env file
+- Environment variable management using django-environ and a project-level .env file
 
-Production-ready structure with support for static files, .env isolation, and a clear directory layout
+- Production-ready structure with support for static files, .env isolation, and a clear directory layout
 
-AutoMax serves as both a practical Django learning project and a foundation for building advanced automotive marketplace solutions.
+- AutoMax serves as both a practical Django learning project and a foundation for building advanced automotive marketplace solutions.
+
+👉 Live Demo: 
+<br>
+🔗 https://vinaymalyala.pythonanywhere.com/
 
 ---
 
-## Contents
+## 📸 Screenshots
+- Homepage
+- Car Listing Page
+- User Profile
+
+## 📂 Project Structure
 - `src/` — Django project root (this repository)
 - `src/automax/` — Django settings and WSGI/ASGI setup
 - `src/main/` — Main application for listings
@@ -24,7 +33,7 @@ AutoMax serves as both a practical Django learning project and a foundation for 
 
 ---
 
-## Prerequisites
+## ⚙️ Prerequisites
 - Python 3.11+ (project used 3.13 in VS Code settings)
 - pip
 - (Optional) Visual Studio Code + Python extension
@@ -32,7 +41,7 @@ AutoMax serves as both a practical Django learning project and a foundation for 
 
 ---
 
-## Quick local setup (Windows PowerShell)
+## 🚀 Quick local setup (Windows PowerShell)
 1. Create and activate a virtual environment:
 
 ```pwsh
@@ -61,7 +70,9 @@ DEBUG=True
 ENV_INJECTION_TEST=1
 ```
 
-Important: Keep your real `SECRET_KEY` private and never commit `.env` to version control. Add it to `.gitignore`.
+➡️ Never commit .env to Git.
+<br>
+**Important:** Keep your real `SECRET_KEY` private and never commit `.env` to version control. Add it to `.gitignore`.
 
 4. Database migrations and superuser
 
@@ -86,7 +97,7 @@ Open http://127.0.0.1:8000/ in your browser.
 
 ---
 
-## Using VS Code with env files
+## 🧪 Using VS Code with env files
 - Project contains a workspace setting `src/.vscode/settings.json` with:
 
 ```json
@@ -125,7 +136,7 @@ This loads `.env` variables for the current PowerShell session (process scope).
 
 ---
 
-## Common commands
+## 🛠 Common commands
 - Activate venv: `& "venv\Scripts\Activate.ps1"`
 - Install deps: `pip install -r requirements.txt`
 - Migrate: `python manage.py migrate`
@@ -135,19 +146,19 @@ This loads `.env` variables for the current PowerShell session (process scope).
 
 ---
 
-## Production & deployment notes
+## 🌐 Production & deployment notes
 - This project includes `whitenoise` for static asset serving in production — adjust `ALLOWED_HOSTS`, set `DEBUG=False`, and configure `STATIC_ROOT` before deploying.
 - Use a proper secret-management solution (e.g. environment variables in CI/CD or secrets manager) instead of `.env` in production.
 
 ---
 
-## About the Codebase
+## 🧱 About the Codebase
 - `automax/settings.py` uses `django-environ` to load environment variables. The project explicitly loads `automax/.env` so Django reads the same `.env` used by your IDE's terminals.
 - Important apps: `main` (listings), `users` (authentication & profiles), and the usual Django stack.
 
 ---
 
-## Helpful troubleshooting
+## 🧩 Helpful troubleshooting
 - If `python manage.py` reports Django not installed, ensure your virtual environment is activated and `pip install -r requirements.txt` was run.
 - If env variables are missing for the terminal session, reload VS Code and open a new terminal to force re-read of env files.
 - For PowerShell 'variable parsing' errors when manually setting env variables, use `Set-Item -Path "Env:<NAME>" -Value <value>` or the `[System.Environment]::SetEnvironmentVariable(...)` approach.
